@@ -1,0 +1,13 @@
+<h1 #titleWriter class="start-text">
+    {{ presentationTitle }}
+    <span #subtitleWriter class="myfaveColor">
+        {{ presentationSubTitle }}
+    </span>
+</h1>
+<p #paragraphWriter class="start-text">
+    <ng-container *ngFor="let sentence of paragraph.split('\<br>')">
+        {{ sentence }}<br>
+    </ng-container>
+</p>
+
+<a href="mailto:arabahimran@gmail.com" class="btn btn-primary">Hire me</a>

@@ -1,0 +1,28 @@
+div {
+    /* gap: 1rem; */
+    padding: 2rem 1rem;
+    margin: 0 auto;
+}
+
+div>div {
+    max-width: 90rem;
+}
+
+div>div>img {
+    background-image: none;
+    border-radius: var(--borderRadius);
+    aspect-ratio: 1/1;
+    height: 20rem;
+}
+
+
+div>div>section {
+    gap: 0rem;
+}
+div>div>section>h4{
+    font-size: 2rem;
+}
+div>div>section>p {
+    color: gray;
+    font-size: 1.5rem;
+}

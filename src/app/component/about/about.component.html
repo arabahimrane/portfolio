@@ -1,0 +1,15 @@
+<div class="d-flex flex-column">
+    <h2 id="services " class="center-text"> About me </h2>
+    <div class=" d-flex flex-row flex-justify-content-center">
+        <img src="../../../assets/me.jpeg" alt="" srcset="">
+        <section class="d-flex flex-column">
+            <h4>{{ title }}</h4>
+            <p>
+                <ng-container *ngFor="let sentence of paragraph.split('\<br>')">
+                   {{ sentence }}<br>
+                </ng-container>
+            </p>
+        </section>
+    </div>
+    
+</div>

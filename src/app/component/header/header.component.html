@@ -1,0 +1,19 @@
+<header class="header d-flex flex-row flex-justify-content-between">
+    <h2 class="d-flex flex-align-items-between ">
+        <span *ngIf=" logoString" class="logoString">{{ logoString }}</span>
+        <span *ngIf="lastname" class="last"> {{ lastname }} </span>
+        <span *ngIf="firstname" class="first">{{ firstname }}</span>
+    </h2>
+    <nav class="nav-center d-flex flex-justify-content-between">
+        <button class="btn btn-primary dropbtn">
+            <span class="material-symbols-outlined">
+                density_medium
+            </span>
+        </button>
+        <ul class="d-flex flex-row flex-align-items-center ">
+            <li *ngFor="let navigator of navigators">
+                <a  class="nav-link scroll-link" [href]="navigator.path">{{ navigator.name }}</a>
+            </li>
+        </ul>
+    </nav>
+</header>
