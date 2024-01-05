@@ -1,0 +1,12 @@
+<div id="certificate" class="d-flex flex-column">
+    <h2 class="myfaveColor center-text"> My certificate </h2>
+    <div class="grid-card d-flex flex-wrap flex-row flex-justify-content-center">
+    <div class="card" *ngFor="let certificate of certificates">
+        <a [href]="certificate.path" target="_blank">
+            <img [src]="certificate.imagePath" [alt]="certificate.title">
+        </a>
+        <h3> {{ certificate.title}} </h3>
+    </div>
+    </div>
+
+</div>

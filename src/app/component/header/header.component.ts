@@ -15,7 +15,7 @@ export class HeaderComponent {
     { name: 'About', path: '#about' },
     { name: 'Services', path: '#services' },
     { name: 'Skills', path: '#skill' },
+    { name: 'Certificate', path: '#certificate' },
     { name: 'Contact', path: '#contact' },
-    { name: 'Portfolio', path: '#portfolio' },
   ];
 }

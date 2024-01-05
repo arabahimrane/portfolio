@@ -34,7 +34,10 @@ export class SkillComponent {
         class: 'bx bxl-python',
         title: "Python"
       },
-      ]
+      {
+        class: 'bx bxl-c-plus-plus',
+        title: "C & C++"
+      }]
     },
     {
       title: "<Frameworks & Libraries />",

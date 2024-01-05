@@ -10,6 +10,7 @@ import { CserviceComponent } from './component/cservice/cservice.component';
 import { PresentationComponent } from './component/presentation/presentation.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SkillComponent } from './component/skill/skill.component';
+import { CertificateComponent } from './component/certificate/certificate.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SkillComponent } from './component/skill/skill.component';
     CserviceComponent,
     AboutComponent,
     FooterComponent,
-    SkillComponent
+    SkillComponent,
+    CertificateComponent
   ],
   imports: [
     BrowserModule,

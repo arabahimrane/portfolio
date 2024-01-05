@@ -104,6 +104,7 @@ body {
 }
 
 .grid-card>.card {
+    text-align: center;
     transition: var(--transition);
     padding: 1rem;
     min-height: 8rem;
