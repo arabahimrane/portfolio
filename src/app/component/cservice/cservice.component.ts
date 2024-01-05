@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServicesItem } from 'src/app/interface/serviceItem';
 
+
 @Component({
   selector: 'app-cservice',
   templateUrl: './cservice.component.html',
@@ -9,17 +10,17 @@ import { ServicesItem } from 'src/app/interface/serviceItem';
 export class CserviceComponent {
   servicesItems: ServicesItem[] = [
     {
-      icon: "monitoring",
+      icon: "bx bx-pie-chart-alt-2",
       numberPrject: 6,
       title: "Marketing",
     },
     {
-      icon: "devices",
+      icon: "bx bx-code-alt",
       numberPrject: 6,
       title: "Costume Applicton",
     },
     {
-      icon: "tenancy",
+      icon: "bx bxl-graphql",
       numberPrject: 6,
       title: "Business consulting",
     }

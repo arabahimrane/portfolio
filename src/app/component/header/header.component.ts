@@ -12,8 +12,9 @@ export class HeaderComponent {
   logoString: string | undefined = "Ar";
   navigators: Navigator_Interface[] = [
     { name: 'Home', path: '#header' },
-    { name: 'Services', path: '#services' },
     { name: 'About', path: '#about' },
+    { name: 'Services', path: '#services' },
+    { name: 'Skills', path: '#skill' },
     { name: 'Contact', path: '#contact' },
     { name: 'Portfolio', path: '#portfolio' },
   ];
