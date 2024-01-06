@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { Navigator_Interface } from 'src/app/interface/navigator';
 
 @Component({
@@ -7,6 +7,11 @@ import { Navigator_Interface } from 'src/app/interface/navigator';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  isShowmenu: boolean;
+  isShowbuttun: boolean;
+  screenWidth: number;
+
   firstname: string = "Imrane";
   lastname: string | undefined;
   logoString: string | undefined = "Ar";
@@ -18,4 +23,46 @@ export class HeaderComponent {
     { name: 'Certificate', path: '#certificate' },
     { name: 'Contact', path: '#contact' },
   ];
+  constructor() {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth < 750) {
+      this.isShowmenu = false
+      this.isShowbuttun = true
+    } else {
+      this.isShowmenu = true
+      this.isShowbuttun = false
+    }
+
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.screenWidth = window.innerWidth;
+
+    console.log("screen size:", this.screenWidth)
+    if (this.screenWidth < 750) {
+      this.isShowmenu = false
+      this.isShowbuttun = true
+    } else {
+      this.isShowmenu = true
+      this.isShowbuttun = false
+    }
+
+  }
+
+  @HostListener('document:click', ['$event'])
+  showmenu(event: Event): void {
+    console.log('click');
+    const clickedElement = event.target as HTMLElement;
+    if (clickedElement.closest('#menu')) {
+      // Cacher le menu si le clic a eu lieu en dehors du menu
+      this.isShowmenu = !this.isShowmenu;
+      console.log('menu click');
+
+    } else {
+      this.isShowmenu = false
+
+    }
+  }
+
 }

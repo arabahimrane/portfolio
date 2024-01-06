@@ -59,26 +59,34 @@
         border: none;
         cursor: pointer;
         position: relative;
-        /* Ajout de la position relative */
     }
 
+    .header>nav>.dropbtn:hover {
+        background-color: black;
+    }
+
+
     /* Container for the dropdown menu */
+    .header {
+        position: relative;
+    }
+
     .header>nav {
         position: relative;
         display: inline-block;
-
     }
 
     .header>nav>ul {
-        display: none;
+        display: block;
         height: fit-content;
         position: absolute;
         background-color: var(--light-body);
         min-width: 160px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        /* z-index: 1; */
+        z-index: 100;
         right: 0;
-
+        top: 100%;
+        /* Positionnez l'ul sous la barre de navigation */
     }
 
     /* Style for the dropdown links */
@@ -94,9 +102,5 @@
         background-color: #f1f1f1;
     }
 
-
-    .header>nav:hover ul {
-        display: block;
-    }
 
 }

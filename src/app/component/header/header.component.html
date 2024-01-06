@@ -5,10 +5,10 @@
         <span *ngIf="firstname" class="first">{{ firstname }}</span>
     </h2>
     <nav class="nav-center d-flex flex-justify-content-between">
-        <button class="btn btn-primary dropbtn">
-            menu
+        <button id="menu"  *ngIf="isShowbuttun" class="btn btn-primary dropbtn">
+            <i class='bx bx-menu'></i>
         </button>
-        <ul class="d-flex flex-row flex-align-items-center ">
+        <ul class="d-flex flex-row flex-align-items-center" *ngIf="isShowmenu">
             <li *ngFor="let navigator of navigators">
                 <a  class="nav-link scroll-link" [href]="navigator.path">{{ navigator.name }}</a>
             </li>

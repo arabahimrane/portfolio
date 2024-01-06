@@ -21,19 +21,27 @@ div>div>section {
     gap: 1rem;
     width: 70%;
 }
-div>div>section>h4{
+
+div>div>section>h4 {
     font-size: 2rem;
 }
+
 div>div>section>p {
     color: gray;
     font-size: 1.5rem;
 }
 
-div>div>section>.icon>a>i{
+div>div>section>.icon>a>i {
     color: gray;
     font-size: 50px;
 }
 
 div>div>section>.icon>a>i:hover {
-    color:var(--primary)
+    color: var(--primary)
+}
+
+@media (max-width: 45rem) {
+div>div>section {
+    width: 100%;
+}
 }
