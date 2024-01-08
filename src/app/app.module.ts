@@ -11,6 +11,7 @@ import { PresentationComponent } from './component/presentation/presentation.com
 import { FooterComponent } from './component/footer/footer.component';
 import { SkillComponent } from './component/skill/skill.component';
 import { CertificateComponent } from './component/certificate/certificate.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CertificateComponent } from './component/certificate/certificate.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

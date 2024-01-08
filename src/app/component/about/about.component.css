@@ -13,7 +13,7 @@ div>div>img {
     background-image: none;
     border-radius: var(--borderRadius);
     aspect-ratio: 1/1;
-    max-height: 20rem;
+    max-height: 400px;
 }
 
 

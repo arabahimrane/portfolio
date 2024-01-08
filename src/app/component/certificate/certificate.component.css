@@ -4,4 +4,6 @@
 
 .card>a>img {
     border-radius: var(--borderRadius);
+    height: auto;
+    width: auto;
 }
