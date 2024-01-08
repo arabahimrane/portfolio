@@ -54,15 +54,20 @@ export class HeaderComponent {
   showmenu(event: Event): void {
     console.log('click');
     const clickedElement = event.target as HTMLElement;
-    if (clickedElement.closest('#menu')) {
-      // Cacher le menu si le clic a eu lieu en dehors du menu
-      this.isShowmenu = !this.isShowmenu;
-      console.log('menu click');
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth < 750) {
 
-    } else {
-      this.isShowmenu = false
+      if (clickedElement.closest('#menu')) {
+        // Cacher le menu si le clic a eu lieu en dehors du menu
+        this.isShowmenu = !this.isShowmenu;
+        console.log('menu click');
 
+      } else {
+        this.isShowmenu = false
+      }
+      
     }
+
   }
 
 }
