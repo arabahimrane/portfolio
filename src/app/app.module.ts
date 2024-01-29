@@ -12,6 +12,8 @@ import { FooterComponent } from './component/footer/footer.component';
 import { SkillComponent } from './component/skill/skill.component';
 import { CertificateComponent } from './component/certificate/certificate.component';
 import { NgOptimizedImage } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { NgOptimizedImage } from '@angular/common';
     CertificateComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

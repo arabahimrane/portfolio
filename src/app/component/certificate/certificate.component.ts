@@ -22,7 +22,12 @@ export class CertificateComponent {
       path:'https://dyma.fr/certification/653fea394b2c7c414f4b3226/5ec44a260e320871af33ecaa',
       imagePath: '../../../assets/certification/typescript.jpg',
       title: 'Typescript'
-    }
+    },
+    {
+      path: 'https://dyma.fr/certification/653fea394b2c7c414f4b3226/58a1863e2e158e82bb85bb6a',
+      imagePath: '../../../assets/certification/angular.jpg',
+      title: 'Angular'
+    },
   ]
 
 }

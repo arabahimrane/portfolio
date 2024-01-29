@@ -1,17 +1,18 @@
-<header class="header d-flex flex-row flex-justify-content-between">
-    <h2 class="d-flex flex-align-items-between ">
-        <span *ngIf=" logoString" class="logoString">{{ logoString }}</span>
-        <span *ngIf="lastname" class="last"> {{ lastname }} </span>
-        <span *ngIf="firstname" class="first">{{ firstname }}</span>
-    </h2>
-    <nav class="nav-center d-flex flex-justify-content-between">
-        <button id="menu"  *ngIf="isShowbuttun" class="btn btn-primary dropbtn">
-            <i class='bx bx-menu'></i>
+
+<mat-toolbar color="lightgray">
+    <mat-toolbar-row color="lightgray" style="background-color: var(--lightgray); justify-content: space-between;">
+        <span class="logo">
+            <span *ngIf=" logoString" class="logoString">{{ logoString }}</span>
+            <span *ngIf="lastname" class="last"> {{ lastname }} </span>
+            <span *ngIf="firstname" class="first">{{ firstname }}</span>
+        </span>
+        <div fxShow="true" fxHide.lt-md>
+            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+            <a *ngFor="let navigator of navigators" class="nav-link scroll-link" [href]="navigator.path"
+                mat-button>{{ navigator.name }}</a>
+        </div>
+        <button mat-icon-button (click)="toggleSidenav()" fxHide.gt-sm>
+            <mat-icon>menu</mat-icon>
         </button>
-        <ul class="d-flex flex-row flex-align-items-center" *ngIf="isShowmenu">
-            <li *ngFor="let navigator of navigators">
-                <a  class="nav-link scroll-link" [href]="navigator.path">{{ navigator.name }}</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+    </mat-toolbar-row>
+</mat-toolbar>

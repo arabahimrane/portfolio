@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
 
 * {
     margin: 0;
@@ -27,18 +27,19 @@ p {
 :root {
     --transition: 0.8s;
     --borderRadius: 10px;
-    --font-family: "Roboto", sans-serif;
+    --font-family: 'Lora', serif;
     --primary: #3498db;
     --secondary: #778beb;
     --accent: #e5546d;
-    --lightgray: #ddd;
+    --lightgray: #ffffff;
     --text-regular: #444;
     --text-color: black;
 }
 
-body {
+body main {
     font-family: var(--font-family);
     color: var(--text-color);
+    background-color: var(--lightgray);
 }
 
 /* layout */
@@ -201,4 +202,14 @@ body {
 
 .d2 {
     border: 1px solid green;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

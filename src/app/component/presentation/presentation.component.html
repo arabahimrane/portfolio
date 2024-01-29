@@ -1,10 +1,10 @@
-<h1 #titleWriter class="start-text">
+<h2 class="start-text">
     {{ presentationTitle }}
-    <span #subtitleWriter class="myfaveColor">
+    <span class="myfaveColor">
         {{ presentationSubTitle }}
     </span>
-</h1>
-<p #paragraphWriter class="start-text">
+</h2>
+<p class="start-text">
     <ng-container *ngFor="let sentence of paragraph.split('\<br>')">
         {{ sentence }}<br>
     </ng-container>
