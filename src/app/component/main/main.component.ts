@@ -29,6 +29,9 @@ export class MainComponent {
       this.navigators = navigators;
     });
   }
-  
+  toggleSidenav() {
+    this.sidebarService.toggleSidenav();
+  }
+
 
 }

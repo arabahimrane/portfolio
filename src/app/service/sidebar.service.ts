@@ -6,17 +6,17 @@ import { Navigator_Interface } from '../interface/navigator';
   providedIn: 'root'
 })
 export class SidebarService {
-  private toggleSidenavSource = new BehaviorSubject<void>(undefined);
-  private navigatorsSource = new BehaviorSubject<Navigator_Interface[]>([]);
+  private toggleSidenavSource$ = new BehaviorSubject<void>(undefined);
+  private navigatorsSource$ = new BehaviorSubject<Navigator_Interface[]>([]);
 
-  toggleSidenav$ = this.toggleSidenavSource.asObservable();
-  navigators$ = this.navigatorsSource.asObservable();
+  toggleSidenav$ = this.toggleSidenavSource$.asObservable();
+  navigators$ = this.navigatorsSource$.asObservable();
 
   toggleSidenav() {
-    this.toggleSidenavSource.next();
+    this.toggleSidenavSource$.next();
   }
 
   setNavigators(navigators: Navigator_Interface[]) {
-    this.navigatorsSource.next(navigators);
+    this.navigatorsSource$.next(navigators);
   }
 }
