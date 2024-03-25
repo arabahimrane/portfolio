@@ -1,0 +1,12 @@
+<app-header></app-header>
+<mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav [opened]="isSidenavOpen" fxFlex="500px" fxHide.gt-sm>
+        <mat-nav-list>
+            <a *ngFor="let navigator of navigators" class="nav-link scroll-link" [routerLink]="navigator.path"
+                routerLinkActive="active" (click)="toggleSidenav()" mat-list-item>{{ navigator.name }}</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

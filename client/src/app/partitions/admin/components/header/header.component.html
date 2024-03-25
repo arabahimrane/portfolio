@@ -1,0 +1,17 @@
+<mat-toolbar color="lightgray">
+    <mat-toolbar-row color="lightgray" style="background-color: var(--lightgray); justify-content: space-between;">
+        <span class="logo">
+            <span *ngIf="logoString" class="logoString">{{ logoString }}</span>
+            <span *ngIf="lastname" class="last"> {{ lastname }} </span>
+            <span *ngIf="firstname" class="first">{{ firstname }}</span>
+        </span>
+        <div fxShow="true" fxHide.lt-md>
+            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+            <a *ngFor="let navigator of navigators" class="nav-link scroll-link" [routerLink]="navigator.path"
+               routerLinkActive="active" mat-button>{{ navigator.name }}</a>
+        </div>
+        <button mat-icon-button (click)="toggleSidenav()" fxHide.gt-sm>
+            <i class='bx bx-menu'></i>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>

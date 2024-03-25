@@ -1,0 +1,19 @@
+mat-toolbar-row{
+    padding: 1.5rem 3rem;
+}
+
+.logo {
+    font-size: x-large;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    align-items: center;
+}
+
+.logoString {
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--borderRadius);
+    aspect-ratio: 1/1;
+    padding: 0.2rem;
+}

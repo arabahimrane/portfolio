@@ -1,0 +1,38 @@
+form {
+    margin: auto;
+    margin-top: 2rem;
+    padding: 4rem;
+    width: 50%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+form h3 {
+    margin: auto;
+}
+
+form button {
+    background-color: var(--primary);
+    width: 4rem;
+    margin: auto;
+    color: white
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+mat-form-field p {
+    color: red;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 1023px) {
+    form {
+        padding: 1rem;
+        width: 100%;
+        box-shadow: none;
+        background-color: var(--lightgray);
+    }
+}

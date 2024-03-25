@@ -1,0 +1,16 @@
+<form class="d-flex flex-column gap-10" (ngSubmit)="onSubmit()">
+    <h3>Welcome to my Portfolio Administration</h3>
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" [formControl]="username" required>
+        <mat-error *ngIf="error_msg">{{error_msg}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="error_msg">{{error_msg}}</mat-error>
+    </mat-form-field>
+    <button mat-button type="submit">Login</button>
+</form>

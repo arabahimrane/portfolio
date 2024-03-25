@@ -1,0 +1,21 @@
+<div id="skill" class="d-flex flex-column">
+    <h2 class="myfaveColor center-text"> Skills </h2>
+
+    <div class="grid-card d-flex flex-row flex-justify-content-center">
+        <div *ngFor="let item of items" class="card d-flex flex-column">
+            <h3 class="center-text">
+                {{ item.title}}
+
+            </h3>
+            <section class="icon d-flex flex-wrap">
+                <div *ngFor="let icon of item.icons" class="d-flex flex-column center-text">
+                    <i [class]="icon.class"></i>
+                    <p>
+                        {{ icon.title }}
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
