@@ -1,0 +1,13 @@
+<div *ngIf="getDataService.certificate$ | async as certificates" id="certificate" class="d-flex flex-column">
+    <h2 class="myfaveColor center-text"> My certificate </h2>
+    <div class="grid-card d-flex flex-wrap flex-row flex-justify-content-center">
+        <div class="card" *ngFor="let certificate of certificates">
+         <app-option-menu [id]="certificate._id"></app-option-menu>
+
+            <a [href]="certificate.url" target="_blank">
+                <img [ngSrc]="certificate.urlImage" width="600" height="425" [alt]="certificate.title">
+            </a>
+            <h3> {{ certificate.title}} </h3>
+        </div>
+    </div>
+</div>

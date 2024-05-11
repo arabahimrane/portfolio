@@ -24,7 +24,12 @@ p {
     color: var(--text-color);
 }
 
+.dialog{
+    border-radius: calc(5px * var(--ratio));
+}
+
 :root {
+    --ratio: 3.74;
     --transition: 0.8s;
     --borderRadius: 10px;
     --font-family: 'Lora', serif;
@@ -42,6 +47,15 @@ body main {
     background-color: var(--lightgray);
 }
 
+.card {
+    max-width: 30rem;
+}
+
+.card>a>img {
+    border-radius: var(--borderRadius);
+    height: auto;
+    width: auto;
+}
  
 /* layout */
 

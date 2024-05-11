@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServicesItem } from 'src/app/interface/serviceItem';
+import { ServicesItem } from 'src/app/shared/interface/serviceItem';
 
 
 @Component({

@@ -1,0 +1,16 @@
+.certificatesTable {
+    width: 90%;
+    margin: auto;
+}
+
+.InserCertificate {
+    /* background-color: red; */
+    height: fit-content;
+    width: 50%;
+    margin: auto;
+}
+
+button {
+    background-color: var(--primary) !important;
+    color: #fff !important
+}

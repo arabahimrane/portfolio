@@ -1,6 +1,6 @@
 .chart {
-    height: fit-content;
-    width:fit-content;
+    height: 10rem;
+    width: 10rem;
 }
 
 @media screen and (min-width: 900px) {

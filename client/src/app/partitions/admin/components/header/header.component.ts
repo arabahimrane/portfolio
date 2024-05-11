@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Navigator_Interface } from 'src/app/interface/navigator';
+import { Navigator_Interface } from 'src/app/shared/interface/navigator';
 import { SidebarService } from '../../service/sidebar.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class HeaderComponent {
   constructor(private sidebarService: SidebarService) { }
 
   ngOnInit() {
-    this.navigators = [{ path: "./", name: "Home" }, { path: "./editHome", name: "editHome" }];
+    this.navigators = [{ path: "./", name: "Home" }, { path: "./certificates", name: "Certificate" }];
 
     this.sidebarService.setNavigators(this.navigators);
   }

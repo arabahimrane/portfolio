@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router, RouterStateSnapshot } from '@angular/router';
-import { Navigator_Interface } from 'src/app/interface/navigator';
+import { Navigator_Interface } from 'src/app/shared/interface/navigator';
 import { SidebarService } from './service/sidebar.service';
 
 @Component({
@@ -14,11 +13,15 @@ export class WebsiteComponent {
   navigators: Navigator_Interface[] = [];
   isSidenavOpen: boolean = true;
 
+  
+
   constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef) { }
 
+
   ngOnInit() {
-    // Initialisation de la barre latérale à fermée
+    // Initialisation de la barre latérale à fermé, 
     this.isSidenavOpen = true;
+    
   }
 
   ngAfterViewInit() {
@@ -36,7 +39,7 @@ export class WebsiteComponent {
   }
 
 
-  
+
 }
 
 

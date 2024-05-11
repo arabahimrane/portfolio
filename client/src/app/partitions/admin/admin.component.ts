@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Navigator_Interface } from 'src/app/interface/navigator';
+import { Navigator_Interface } from 'src/app/shared/interface/navigator';
 import { SidebarService } from './service/sidebar.service';
 import { GetDataService } from './service/get-data.service';
 
@@ -15,11 +15,11 @@ export class AdminComponent {
   isSidenavOpen!: boolean;
 
   constructor(private sidebarService: SidebarService, private cdr: ChangeDetectorRef, private getDataservice: GetDataService) {
-    getDataservice.loadData();
   }
 
   ngOnInit() {
     this.isSidenavOpen = true;
+    this.getDataservice.loadData();
 
 
   }

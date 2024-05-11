@@ -1,31 +1,33 @@
-<div class="sessionTable">
-    <table mat-table [dataSource]="sessionData" class="mat-elevation-z8">
-    
+<div *ngIf="getDataService.clientData$ | async as clientsData" class="sessionTable mat-elevation-z8">
+    <table mat-table  [dataSource]="clientsData!.clients!" >
         <!-- Name Column -->
-        <ng-container matColumnDef="token">
-            <th mat-header-cell *matHeaderCellDef> Token </th>
-            <td mat-cell *matCellDef="let element"> {{element.token}} </td>
+        <ng-container matColumnDef="ip">
+            <th mat-header-cell *matHeaderCellDef> IP </th>
+            <td mat-cell *matCellDef="let element"> {{element.ip}} </td>
         </ng-container>
-    
+
         <!-- Weight Column -->
-        <ng-container matColumnDef="country">
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> City </th>
+            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="country_name">
             <th mat-header-cell *matHeaderCellDef> Country </th>
-            <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.country_name}} </td>
         </ng-container>
-    
+
         <!-- Symbol Column -->
-        <ng-container matColumnDef="nVisites">
-            <th mat-header-cell *matHeaderCellDef> No.visites </th>
-            <td mat-cell *matCellDef="let element"> {{element.nVisites}} </td>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{ element.date | date: "short" }} </td>
         </ng-container>
-    
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="visitePage">
-            <th mat-header-cell *matHeaderCellDef> page visiter </th>
-            <td mat-cell *matCellDef="let element"> {{element.pVisites}} </td>
-        </ng-container>
-    
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator showFirstLastButtons  (page)="getPage($event)" [length]="clientsData.clientsLength!" [pageSize]="10"  [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"/>
+    
+
 </div>

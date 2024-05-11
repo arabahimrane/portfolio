@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GoogleAnalyticsService } from 'angular-ga';
 
 
 @Component({
@@ -10,13 +9,13 @@ import { GoogleAnalyticsService } from 'angular-ga';
 export class AppComponent {
     title = 'portfolio';
 
-    constructor(private gaService: GoogleAnalyticsService) { }
+    constructor() { }
 
     trackPageView() {
-        this.gaService.sendPageView('Page Title', '/page-url');
+        // this.gaService.sendPageView('Page Title', '/page-url');
     }
 
     trackEvent() {
-        this.gaService.sendEvent('Category', 'Action', 'Label', 1);
+        // this.gaService.sendEvent('Category', 'Action', 'Label', 1);
     }
 }

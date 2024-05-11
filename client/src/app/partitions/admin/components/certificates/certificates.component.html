@@ -1,0 +1,21 @@
+<form class="InserCertificate d-flex flex-column gap-10 p-10" (ngSubmit)="onSubmit()">
+    <h3>Ajouter un nouveau certificat.</h3>
+    <mat-error *ngIf="error_msg">{{error_msg}}</mat-error>
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" [formControl]="title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Url</mat-label>
+        <input matInput [formControl]="url" required>
+    </mat-form-field>
+
+    <ngx-dropzone #drop  [accept]="'image/jpeg,image/jpg,image/png'" [id]="'idtest'" [aria-label]="'al-test'"(change)="onSelect($event)">
+        <ngx-dropzone-label>Drop your certificate</ngx-dropzone-label>
+        <ngx-dropzone-image-preview *ngIf="files" [file]="files" [removable]="true" (removed)="onRemove(files)"/>
+    </ngx-dropzone>
+    <button mat-flat-button type="submit">Submit</button>
+</form>
+
+<app-card-certificate/>

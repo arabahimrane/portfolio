@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { Navigator_Interface } from 'src/app/interface/navigator';
+import { Navigator_Interface } from 'src/app/shared/interface/navigator';
 import { SidebarService } from 'src/app/partitions/website/service/sidebar.service';
 
 @Component({

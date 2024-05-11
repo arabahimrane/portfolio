@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Navigator_Interface } from '../../../interface/navigator';
+import { Navigator_Interface } from '../../../shared/interface/navigator';
 
 @Injectable({
   providedIn: 'root'

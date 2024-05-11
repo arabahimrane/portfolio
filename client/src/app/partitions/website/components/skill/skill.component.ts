@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Skills } from 'src/app/interface/skills';
+import { Skills } from 'src/app/shared/interface/skills';
 
 @Component({
   selector: 'app-skill',
