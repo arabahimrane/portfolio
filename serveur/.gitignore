@@ -1,5 +1,5 @@
 #node
 /node_modules
 
-#aws
-/config/aws.config.js
+#config file
+/config
