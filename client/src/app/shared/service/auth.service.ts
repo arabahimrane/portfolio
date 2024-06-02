@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 
 import { ApiPath } from './API';
 import { loginData } from '../interface/login';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
+import { MyCookieService } from './my-cookie.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,16 @@ import { Observable } from 'rxjs';
 export class AuthService {
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private apiService: ApiService, private cookieService: CookieService, private http: HttpClient) { }
+  constructor(private apiService: ApiService, private myCookieService: MyCookieService, private http: HttpClient) { }
 
   signin(formData: loginData): Observable<any> {
     return new Observable<any>((observer) => {
       this.apiService.signinApi(formData).subscribe(
         (res) => {
+          console.log('res: ', res.token);
+          this.myCookieService.insertToken('token', res.token);
+
+          
           observer.next(res);
           observer.complete();
         },
@@ -32,7 +36,7 @@ export class AuthService {
 
   public signout() {
     try {
-      this.cookieService.delete('adminToken');
+      this.myCookieService.delletCookie('token');
       window.location.href = '../';
     } catch (error) {
       console.log(error);

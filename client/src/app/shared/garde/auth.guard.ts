@@ -13,12 +13,14 @@ export const authGuard: CanActivateFn = async (route, state) => {
       return true;
     } else {
       cookie.delletCookie('token');
-      window.location.href = '/login';
+      // window.location.href = '/login';
       return false;
     }
   } catch (error) {
     cookie.delletCookie('token');
-    window.location.href = '/login'; // Rediriger vers la page de connexion en cas d'erreur
+    console.log('error: ', error);
+    
+    // window.location.href = '/login'; // Rediriger vers la page de connexion en cas d'erreur
     return false;
   }
 };

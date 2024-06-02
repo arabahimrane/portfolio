@@ -38,13 +38,16 @@ router.post('/', async (req, res) => {
 router.post("/signin", async (req, res) => {
     
     if (req.body == null) {
+        console.log('body null');
         res.status(403).json({ title: "statu 403", content: "access denied" });
     }
     await signin(req.body).then(async (token) => {
+        console.log('token', token);
         res.status(200).json({ token: token });
         await delletToken(req.body.token);
 
     }).catch((error) => {
+        console.log('error', error.message);
         res.status(403).json({ title: "statu 403", content: error.message });
     });
 

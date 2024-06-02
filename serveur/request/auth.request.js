@@ -5,6 +5,7 @@ const { newClient, setToken } = require('../request/client.request')
 
 exports.testSession = async (req, res, next) => {
     try {
+        console.log('testSession: ', req.headers);
         const token = req.headers.authorization;
 
         const result = await expiredJwtTest(token, true);

@@ -3,11 +3,13 @@ const { getData } = require('../request/admin.request');
 const { saveCertificate, getCertificate, deletCertificate } = require('../request/data.request');
 const { sendToS3, delletToS3 } = require('../controller/aws.controller');
 
-router.get("", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
+        console.log('/administration', req.testSessionResult)
         var admin = req.testSessionResult;
         res.status(200).json({ admin });
     } catch (error) {
+        console.log('error', error.message);
         res.status(403).json({ title: "statu 403", content: error.message });
     }
 });

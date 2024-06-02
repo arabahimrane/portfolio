@@ -4,14 +4,14 @@ import { ApiPath } from './API';
 import { catchError, map, Observable, tap } from 'rxjs';
 import { ClientsData } from '../interface/clientData';
 import { Certificate } from '../interface/certicates';
-import { CookieService } from 'ngx-cookie-service';
+import { MyCookieService } from './my-cookie.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient, private cookieService: CookieService,) { }
+  constructor(private http: HttpClient, private myCookies: MyCookieService,) { }
 
   getLocalisationAndSave() {
     return new Promise((resolve, reject) => {
@@ -39,7 +39,7 @@ export class ApiService {
   }
 
   getDataForClient() {
-    if (this.cookieService.get("token")) this.getLocalisationAndSave();
+    if (this.myCookies.getToken("token")) this.getLocalisationAndSave();
     return this.http.get<any>(ApiPath.start);
   }
 

@@ -3,18 +3,15 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { ErrorInterface } from 'src/app/shared/interface/error';
 import { loginData } from 'src/app/shared/interface/login';
 import { AuthService } from 'src/app/shared/service/auth.service';
-import { MyCookieService } from 'src/app/shared/service/my-cookie.service';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css'],
-  providers: [CookieService],
 })
 
 export class LoginFormComponent implements ErrorStateMatcher {
@@ -24,7 +21,7 @@ export class LoginFormComponent implements ErrorStateMatcher {
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
 
-  constructor(private router: Router,private myCookie: MyCookieService,private authService: AuthService,private dialog: MatDialog) { }
+  constructor(private router: Router,private authService: AuthService,private dialog: MatDialog) { }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string, data: ErrorInterface): void {
     console.log("openDialog: ", data.title);
