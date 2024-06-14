@@ -9,18 +9,22 @@ export const authGuard: CanActivateFn = async (route, state) => {
 
   try {
     const isLoggedIn = await authService.isLoggedIn().toPromise();
+    console.log('isLoggedIn: ', isLoggedIn);
+    
     if (isLoggedIn) {
       return true;
     } else {
-      cookie.delletCookie('token');
-      // window.location.href = '/login';
+      // cookie.delletCookie('token');
+      console.log('isLoggedIn: false');
+      
+      window.location.href = '/login';
       return false;
     }
   } catch (error) {
-    cookie.delletCookie('token');
+    // cookie.delletCookie('token');
     console.log('error: ', error);
     
-    // window.location.href = '/login'; // Rediriger vers la page de connexion en cas d'erreur
+    window.location.href = '/login'; // Rediriger vers la page de connexion en cas d'erreur
     return false;
   }
 };

@@ -47,6 +47,8 @@ export class AuthService {
     return new Observable<boolean>((observer) => {
       this.apiService.isLoggedinApi().subscribe(
         (loggedIn) => {
+          console.log('loggedIn: service', loggedIn);
+          
           observer.next(loggedIn); // Émettre la valeur de loggedIn
           observer.complete(); // Terminer l'observable
         },

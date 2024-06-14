@@ -27,3 +27,15 @@ exports.expiredJwtTest = (token, autorisation) => {
         throw new Error("access denied");
     }
 }
+
+exports.verifyAdminJwtToken = (token) => { 
+    try {
+        const decodedToken = jwt.verify(token, secret);
+        if (!decodedToken.admin) {
+            throw new Error("access denied");
+        }
+        return token;
+    } catch (e) {
+        throw new Error("access denied");
+    }
+}

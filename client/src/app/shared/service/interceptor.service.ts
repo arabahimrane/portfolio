@@ -14,7 +14,7 @@ export class InterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     var token = this.myCookieService.getToken('token');
 
-        
+
     if(token == null) token = '';
     const reqClone = req.clone({ headers: req.headers.append('Authorization', token) });
 
@@ -22,8 +22,8 @@ export class InterceptorService implements HttpInterceptor {
       if (event instanceof HttpResponse) {
         if (event.url != ApiPath.ipApi) {
           console.log('event: ', event.headers);
-          // token != event.headers.get('Authorization') ?
-          //   this.myCookieService.insertToken('token', event.headers.get('Authorization')!) : null;
+          token != event.headers.get('Authorization') && event.headers.get('Authorization') != null ?
+            this.myCookieService.insertToken('token', event.headers.get('Authorization')!) : null;
         }
       }
     }));

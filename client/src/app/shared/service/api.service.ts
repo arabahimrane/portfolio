@@ -22,8 +22,10 @@ export class ApiService {
             ip: response.ip, city: response.city, country_name: response.country_name,
             latitude: response.latitude, longitude: response.longitude
           }
+
           this.http.post<any>(ApiPath.start, formData).subscribe(
             (respons) => {
+
               resolve(respons);
             },
             (error) => {
@@ -39,13 +41,15 @@ export class ApiService {
   }
 
   getDataForClient() {
-    if (this.myCookies.getToken("token")) this.getLocalisationAndSave();
+    if (!this.myCookies.getToken("token")) this.getLocalisationAndSave();
     return this.http.get<any>(ApiPath.start);
   }
 
   isLoggedinApi(): Observable<boolean> {
     return this.http.get(ApiPath.administration).pipe(
       map((res: any) => {
+        console.log('res: ', res);
+        
         return true;
       }),
       catchError((error) => {

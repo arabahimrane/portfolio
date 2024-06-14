@@ -1,14 +1,13 @@
 const AdminData = require('./model/admin.model');
 const { getAdminByUsername } = require('../request/admin.request');
-const { createJwtToken, expiredJwtTest } = require('../config/jwt.config');
+const { createJwtToken, expiredJwtTest, verifyAdminJwtToken } = require('../config/jwt.config');
 const { newClient, setToken } = require('../request/client.request')
 
 exports.testSession = async (req, res, next) => {
     try {
-        console.log('testSession: ', req.headers);
         const token = req.headers.authorization;
 
-        const result = await expiredJwtTest(token, true);
+        const result = await verifyAdminJwtToken(token);
 
         req.testSessionResult = result;
 

@@ -1,6 +1,6 @@
 export enum ApiPath {
     ipApi = "https://ipapi.co/json/",
-    url = './api/',
+    url = 'http://127.0.0.1/api/',
     awsFile = 'https://panadola.s3.us-west-2.amazonaws.com/',
 
     signin = url + 'signin',
