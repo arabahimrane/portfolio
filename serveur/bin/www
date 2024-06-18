@@ -7,19 +7,21 @@
 var app = require('../app');
 var debug = require('debug')('serveur:server');
 var http = require('http');
+var https = require('https');
+
 const env = require(`../environment/${process.env.NODE_ENV}`);
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(env.portHttp || '80');
+var port = normalizePort(443);
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = https.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
