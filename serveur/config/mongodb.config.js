@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const env = require(`../environment/${process.env.NODE_ENV}`);
+const env = require(`../environment/production`);
 
 exports.clientPromise = mongoose
     .connect(env.dbUrl)
