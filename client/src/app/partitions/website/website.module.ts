@@ -13,6 +13,7 @@ import { SkillComponent } from './components/skill/skill.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HomeComponent } from './Views/home/home.component';
+import { ProjetListComponent } from './components/projet-list/projet-list.component';
 
 
 
@@ -28,6 +29,7 @@ import { HomeComponent } from './Views/home/home.component';
     CertificateComponent,
     LoginFormComponent,
     HomeComponent,
+    ProjetListComponent,
   ],
   imports: [
     MaterialModule,
