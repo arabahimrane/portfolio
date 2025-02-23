@@ -7,12 +7,11 @@ var logger = require('morgan');
 var path = require('path');
 var router = require('./routes/index.routes');
 
-
 var app = express();
 
+// Utilisation de morgan pour afficher toutes les requêtes reçues
+app.use(logger('combined'));
 
-
-app.use(logger('dev'));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -21,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
   exposedHeaders: ['Authorization'],
 }));
-
 
 app.use((_req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Autorise toutes les origines, vous pouvez spécifier des domaines spécifiques au lieu de '*'
@@ -35,7 +33,7 @@ app.options('*', function (req, res) {
 });
 
 // Définition de la route
-app.use("/api",router);
+app.use("/api", router);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 })

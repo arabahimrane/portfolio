@@ -73,4 +73,8 @@ router.use('/website', testWebSitSession, website);
 
 router.use('/administration', testSession, administration);
 
+router.use('*'  , (req, res) => {
+    res.status(404).json({ title: "statu 404", content: "not found" });
+});
+
 module.exports = router;
