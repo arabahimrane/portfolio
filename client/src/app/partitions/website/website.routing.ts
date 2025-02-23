@@ -21,10 +21,7 @@ export const WEBSITE_ROUTES: Routes = [
                 path: "projet",
                 component: ProjetListComponent
             },
-            {
-                path: "**",
-                redirectTo: ""
-            }
+            
         ]
     },
 ];
