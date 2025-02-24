@@ -9,7 +9,7 @@ var http = require('http');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
- 
+
 /**
  * Get port from environment and store in Express.
  */
@@ -18,7 +18,7 @@ var port = normalizePort(process.env.PORT || '443');
 app.set('port', port);
 
 /**
- * redirect HTTP server to Https.
+ * Redirect HTTP server to HTTPS.
  */
 
 http
@@ -26,24 +26,41 @@ http
     res.writeHead('301', { Location: `https://${req.headers.host}${req.url}` });
     res.end();
   })
+  .listen(80); // Assurez-vous que le serveur HTTP écoute sur le port 80
 
 /**
  * Create HTTPS server.
  */
-const server = https.createServer(
-  {
-    key: fs.readFileSync(path.join(__dirname, '../ssl/local.key')),
-    cert: fs.readFileSync(path.join(__dirname, '../ssl/local.cert')),
-  },
-  app
-);
-/**
- * Listen on provided port, on all network interfaces.
- */
+const keyPath = path.join(__dirname, '../ssl/local.key');
+const certPath = path.join(__dirname, '../ssl/local.cert');
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+let server;
+
+try {
+  const key = fs.readFileSync(keyPath, 'utf8');
+  const cert = fs.readFileSync(certPath, 'utf8');
+
+  console.log('Key:', key);
+  console.log('Cert:', cert);
+
+  server = https.createServer(
+    {
+      key: key,
+      cert: cert,
+    },
+    app
+  );
+
+  /**
+   * Listen on provided port, on all network interfaces.
+   */
+
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+} catch (error) {
+  console.error('Error reading SSL files:', error);
+}
 
 /**
  * Normalize a port into a number, string, or false.
@@ -99,5 +116,8 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  console.log(`Le serveur est en cours d'exécution sur l'adresse http://${addr.address}:${addr.port}`);
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  console.log(`Le serveur est en cours d'exécution sur l'adresse https://${addr.address === '::' ? 'localhost' : addr.address}:${addr.port}`);
 }
