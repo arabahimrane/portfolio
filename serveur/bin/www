@@ -6,20 +6,37 @@
 
 var app = require('../app');
 var http = require('http');
-
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+ 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '443');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * redirect HTTP server to Https.
  */
 
-var server = http.createServer(app);
+http
+  .createServer((req, res) => {
+    res.writeHead('301', { Location: `https://${req.headers.host}${req.url}` });
+    res.end();
+  })
 
+/**
+ * Create HTTPS server.
+ */
+const server = https.createServer(
+  {
+    key: fs.readFileSync(path.join(__dirname, '../ssl/local.key')),
+    cert: fs.readFileSync(path.join(__dirname, '../ssl/local.csr')),
+  },
+  app
+);
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -82,8 +99,5 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
   console.log(`Le serveur est en cours d'exécution sur l'adresse http://${addr.address}:${addr.port}`);
 }
