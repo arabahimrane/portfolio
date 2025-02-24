@@ -8,7 +8,6 @@ var app = require('../app');
 var http = require('http');
 const https = require('https');
 const fs = require('fs');
-const path = require('path');
 
 /**
  * Get port from environment and store in Express.
@@ -31,8 +30,8 @@ http
 /**
  * Create HTTPS server.
  */
-const keyPath = path.join(__dirname, '/etc/letsencrypt/live/www.imranearabah.com/privkey.pem');
-const certPath = path.join(__dirname, '/etc/letsencrypt/live/www.imranearabah.com/fullchain.pem');
+const keyPath = '/etc/letsencrypt/live/www.imranearabah.com/privkey.pem';
+const certPath =  '/etc/letsencrypt/live/www.imranearabah.com/fullchain.pem';
 
 let server;
 
